@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ADA21131-5EA5-4EDB-8AC2-4BBD2DB8ADC2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AnomalyDetection.Technique</RootNamespace>
+    <AssemblyName>AnomalyDetection.Technique</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="halcondotnet">
+      <HintPath>..\..\..\..\..\..\Program Files\MVTec\HALCON-20.11-Steady\bin\dotnet35\halcondotnet.dll</HintPath>
+    </Reference>
+    <Reference Include="NModbus">
+      <HintPath>..\..\..\NModbus\NModbus\NModbus\bin\Debug\net48\NModbus.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Acquisitions\Cameras\D2D\AcqImage2DDirectory.cs" />
+    <Compile Include="Acquisitions\Cameras\D2D\AcqIMage2DFile.cs" />
+    <Compile Include="Acquisitions\Cameras\D3D\AcqImage3DDirectory.cs" />
+    <Compile Include="Acquisitions\Cameras\D3D\AcqImage3DEnsenso.cs" />
+    <Compile Include="Acquisitions\Cameras\D3D\AcqIMage3DFile.cs" />
+    <Compile Include="Acquisitions\Cameras\D3D\AcqImage3DPhoxi.cs" />
+    <Compile Include="Acquisitions\Cameras\D2D\AcqImage2DBasler.cs" />
+    <Compile Include="Acquisitions\Discovery\AcqDevice.cs" />
+    <Compile Include="Acquisitions\Discovery\DeviceDiscovery.cs" />
+    <Compile Include="Acquisitions\Discovery\DeviceEventArg.cs" />
+    <Compile Include="Acquisitions\Discovery\DeviceType.cs" />
+    <Compile Include="Acquisitions\Discovery\DiscoveryEventArgs.cs" />
+    <Compile Include="Acquisitions\IAcqImage3D.cs" />
+    <Compile Include="Acquisitions\IAcqImage2D.cs" />
+    <Compile Include="Acquisitions\Image3D.cs" />
+    <Compile Include="Acquisitions\Image2D.cs" />
+    <Compile Include="Communications\ICom.cs" />
+    <Compile Include="Communications\Protocols\Modbus\ComModbus.cs" />
+    <Compile Include="Communications\Protocols\Modbus\Extensions.cs" />
+    <Compile Include="Communications\Protocols\Tcp\ComTCP.cs" />
+    <Compile Include="Communications\Protocols\Tcp\SocketServer.cs" />
+    <Compile Include="Communications\Requests\InvalidArgRequestException.cs" />
+    <Compile Include="Communications\Requests\RequestCalib.cs" />
+    <Compile Include="Communications\Requests\RequestCalibStep.cs" />
+    <Compile Include="Communications\Requests\RequestFreeRun.cs" />
+    <Compile Include="Communications\Requests\RequestLoad.cs" />
+    <Compile Include="Communications\Requests\RequestTrigger.cs" />
+    <Compile Include="Communications\Results\EnumState.cs" />
+    <Compile Include="Communications\Results\ExtensionResult.cs" />
+    <Compile Include="Communications\Results\IResult.cs" />
+    <Compile Include="Communications\Results\ResultCalib.cs" />
+    <Compile Include="Communications\Results\ResultCalibStep.cs" />
+    <Compile Include="Communications\Results\ResultFreeRun.cs" />
+    <Compile Include="Communications\Results\ResultLoad.cs" />
+    <Compile Include="Communications\Results\ResultTrigger.cs" />
+    <Compile Include="TraitementImage\DeepLearning\InferenceDL.cs" />
+    <Compile Include="TraitementImage\Resultat\Result.cs" />
+    <Compile Include="TraitementImage\Resultat\ResultInference.cs" />
+    <Compile Include="TraitementImage\Resultat\ResultInferenceManager.cs" />
+    <Compile Include="Logs\Log.cs" />
+    <Compile Include="Logs\LogsManager.cs" />
+    <Compile Include="ModelsDL\Model.cs" />
+    <Compile Include="ModelsDL\ModelsManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Communications\Protocols\Snap7\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
