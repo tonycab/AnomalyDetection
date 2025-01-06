@@ -68,7 +68,7 @@ namespace AnomalyDetection.IHM
 
         public Form1()
         {
-            this.Text = "SIIF Anomaly Detection";
+            this.Text = "Anomaly Detection";
             InitializeComponent();
         }
 
